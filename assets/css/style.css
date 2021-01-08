@@ -18,7 +18,18 @@ body {
     background-color: rgb(217, 223, 220);
 }
 
-header{
+#highscore {
+    display: inline-block;
+    float: left;
+}
+
+#timer {
+    display: block;
+    float: right;
+}
+
+
+#quizTitle {
     text-align: center;
 }
 
@@ -37,6 +48,10 @@ header{
     margin: auto;
     max-width: 800px;
     padding: 30px 40px;
+}
+
+.card-header {
+    text-align: center;
 }
 
 .card-header::after {
@@ -70,4 +85,12 @@ header{
     border-radius: 6px;
     resize: none;
     overflow: hidden;
-  }
+}
+
+.btn {
+    border: none;
+    background-color: red;
+    border-radius: 2px;
+    color: white;
+    box-shadow: 0px 1px 1px 0px gray;
+}
