@@ -78,7 +78,7 @@ body {
     min-height: 100px;
 }
 
-#question {
+.container {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
