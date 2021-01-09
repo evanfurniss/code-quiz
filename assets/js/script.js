@@ -2,7 +2,7 @@ var questionBox = document.querySelector("#question");
 var answerBox = document.querySelector("#answers");
 var timer = document.querySelector("#timer");
 var start = document.querySelector("#btnStart");
-var secRemaining = 100;
+var secRemaining = 90;
 var qIndex = 0;
 
 start.addEventListener("click", function(){
@@ -30,7 +30,7 @@ function runningTimer() { stopTime = setInterval(function(){
     timer.textContent = ("Time: " + secRemaining);
     if (secRemaining <= 0) {
         clearInterval(stopTime);
-        questionBox.innerHTML = "<h2>High Scores</h2><br>";
+        questionBox.innerHTML = "<h2>High Scores</h2>";
         answerBox.innerHTML = localStorage.getItem("initials") + ": " + localStorage.getItem("score");
     }
 }, 1000);
@@ -47,11 +47,11 @@ function checkAnswer(e){
 
     if (qIndex == qList.length && secRemaining != 0){
         var userInit = prompt("Enter your initials");
+        userInit = userInit + ": " + secRemaining;
         localStorage.setItem("initials", userInit);
-        localStorage.setItem("score", secRemaining);
         clearInterval(stopTime);
         questionBox.innerHTML = "<h2>High Scores</h2><br>";
-        answerBox.innerHTML = localStorage.getItem("initials") + ": " + localStorage.getItem("score");
+        answerBox.innerHTML = localStorage.getItem("initials");
     }
     else{
         questionCreator();
