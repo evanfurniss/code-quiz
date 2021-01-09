@@ -28,21 +28,23 @@ body {
     position: relative;
 } */
 
-#highscore {
-    display: inline-block;
-    float: left;
+header {
+    text-align: center;
 }
 
-#timer {
+#highscore {
     display: inline-block;
-    float: right;
-    padding-right: 20px;
 }
 
 #quizTitle {
     display: inline-block;
     border: solid black;
     border-radius: 3px;
+}
+
+#timer {
+    display: inline-block;
+    padding-right: 20px;
 }
 
 .wrapper{

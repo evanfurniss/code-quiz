@@ -2,11 +2,11 @@ var questionBox = document.querySelector("#question");
 var answerBox = document.querySelector("#answers");
 var timer = document.querySelector("#timer");
 var start = document.querySelector("#btnStart");
-var secRemaining = 90;
+var secRemaining = 100;
 var qIndex = 0;
 
 start.addEventListener("click", function(){
-    stopTime;
+    runningTimer();
     questionCreator();
     start.setAttribute("style", "display: none");
 });
@@ -23,14 +23,18 @@ function questionCreator() {
     }
 }
 
-var stopTime = setInterval(function(){
+var stopTime;
+
+function runningTimer() { stopTime = setInterval(function(){
     secRemaining--;
     timer.textContent = ("Time: " + secRemaining);
     if (secRemaining <= 0) {
         clearInterval(stopTime);
-        questionBox.textContent = "Game Over :(";
+        questionBox.innerHTML = "<h2>High Scores</h2><br>";
+        answerBox.innerHTML = localStorage.getItem("initials") + ": " + localStorage.getItem("score");
     }
 }, 1000);
+}
 
 function checkAnswer(e){
     if (e.target.innerText === qList[qIndex].correctAnswer) {
@@ -42,12 +46,12 @@ function checkAnswer(e){
     }
 
     if (qIndex == qList.length && secRemaining != 0){
-        answerBox.innerHTML = "";
-        questionBox.innerHTML = "";
         var userInit = prompt("Enter your initials");
-        clearInterval(stopTime);
         localStorage.setItem("initials", userInit);
         localStorage.setItem("score", secRemaining);
+        clearInterval(stopTime);
+        questionBox.innerHTML = "<h2>High Scores</h2><br>";
+        answerBox.innerHTML = localStorage.getItem("initials") + ": " + localStorage.getItem("score");
     }
     else{
         questionCreator();
