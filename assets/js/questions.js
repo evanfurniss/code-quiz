@@ -20,6 +20,6 @@ var qList = [{
 },
 {
     question: "What is the name of floating orb?",
-    asnwers: ["Chaos Emerald", "Naughty Splash", "Guilty Spark", "Planet Core"],
+    answers: ["Chaos Emerald", "Naughty Splash", "Guilty Spark", "Planet Core"],
     correctAnswer: "Guilty Spark"
 }];

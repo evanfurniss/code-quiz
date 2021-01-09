@@ -6,7 +6,7 @@ var secRemaining = 90;
 var qIndex = 0;
 
 start.addEventListener("click", function(){
-    timeFunc();
+    stopTime;
     questionCreator();
     start.setAttribute("style", "display: none");
 });
@@ -18,31 +18,38 @@ function questionCreator() {
     for (let j = 0; j < qAnswers.length; j++){
         var buttons = document.createElement("button");
         buttons.innerText = qAnswers[j];
-        buttons.addEventListener("click", checkAnswer);
         answerBox.append(buttons);
-        console.log(qIndex);
+        buttons.addEventListener("click", checkAnswer);
     }
 }
 
-function timeFunc() {
-    setInterval(function(){
-        secRemaining--;
-        timer.textContent = ("Time: " + secRemaining);
-        if (secRemaining <= 0) {
-            clearInterval(timeFunc);
-            questionBox.textContent = "Game Over :(";
-        }
-    }, 1000);
-}
+var stopTime = setInterval(function(){
+    secRemaining--;
+    timer.textContent = ("Time: " + secRemaining);
+    if (secRemaining <= 0) {
+        clearInterval(stopTime);
+        questionBox.textContent = "Game Over :(";
+    }
+}, 1000);
 
 function checkAnswer(e){
     if (e.target.innerText === qList[qIndex].correctAnswer) {
         qIndex++;
-        questionCreator();
     }
     else {
         secRemaining = secRemaining - 10;
         qIndex++;
+    }
+
+    if (qIndex == qList.length && secRemaining != 0){
+        answerBox.innerHTML = "";
+        questionBox.innerHTML = "";
+        var userInit = prompt("Enter your initials");
+        clearInterval(stopTime);
+        localStorage.setItem("initials", userInit);
+        localStorage.setItem("score", secRemaining);
+    }
+    else{
         questionCreator();
     }
 }
