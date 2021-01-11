@@ -1,15 +1,15 @@
 var qList = [{
-    question: "What is the name of the playable character in Halo: Combat Evolved?",
+    question: "Who is the playable character in Halo: Combat Evolved?",
     answers: ["John Adams", "Marcus Phoenix", "Master Chief", "Crash Bandicoot"],
     correctAnswer: "Master Chief"
 }, 
 {
-    question: "what is the name of the Halo multiplayer map?",
+    question: "What is the name of the Red vs. Blue Halo multiplayer map?",
     answers: ["Blood Gulch", "Battle Creek", "Sidewinder", "Wizard"],
     correctAnswer:  "Blood Gulch"
 },
 {
-    question: "What is the name of the antagonist group",
+    question: "Who is/are the antagonist(s)",
     answers: ["Flood", "Covenant", "Swarm", "Both a & b"],
     correctAnswer: "Both a & b"
 },
